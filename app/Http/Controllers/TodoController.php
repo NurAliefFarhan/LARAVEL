@@ -46,7 +46,7 @@ class TodoController extends Controller
             'password' => Hash::make($request->password),
         ]);
         // apabila berhasil, bkl diarahin ke hlmn login dengan pesan success
-        return redirect('/')->with('success', 'berhasil membuat akun!');
+        return redirect('/')->with('success', 'berhasil membuat akun!'); //mereturn / lewat / , bukan lewat name yang diberikan 
     }
 
     public function auth(Request $request)
@@ -60,7 +60,7 @@ class TodoController extends Controller
 
         $user = $request->only('username', 'password');
         if (Auth::attempt($user)) {
-            return redirect()->route('todo.index');
+            return redirect()->route('todo.index'); //membuka fila index dengan name nya ("ditambahkan dengan route")
         } else {
             // dd('salah');
             return redirect('/')->with('fail', "Gagal login, periksa dan coba lagi!");
