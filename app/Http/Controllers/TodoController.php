@@ -60,7 +60,7 @@ class TodoController extends Controller
 
         $user = $request->only('username', 'password');
         if (Auth::attempt($user)) {
-            return redirect()->route('todo.index'); //membuka fila index dengan name nya ("ditambahkan dengan route")
+            return redirect()->route('todo.index'); //membuka file index dengan name nya ("ditambahkan dengan route")
         } else {
             // dd('salah');
             return redirect('/')->with('fail', "Gagal login, periksa dan coba lagi!");
